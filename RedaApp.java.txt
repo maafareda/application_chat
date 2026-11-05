@@ -1,0 +1,33 @@
+	RedaApp.java : 
+
+démarre l’application JavaFX et ouvre la fenêtre de discussion.
+
+
+
+	ChatController.java :
+
+ gère l’interface : utilisateurs, conversations, envoi de messages, pièces jointes, audio et assistant.
+
+
+
+	ChatClient.java :
+
+ connecte l’application au serveur et envoie ou reçoit les messages.
+
+
+	ChatServer.java :
+
+ accepte plusieurs connexions en parallèle, gère les utilisateurs connectés et distribue les messages.
+
+
+
+	ClientHandler.java :
+
+ s’occupe d’une connexion cliente : identifie l’utilisateur, traite ses commandes et lui transmet les réponses.
+
+
+	ChatDatabase.java : enregistre les utilisateurs et les messages, puis permet de récupérer l’historique.
+
+
+
+	AssistantService  .java : obtient les réponses de l’assistant IA, en essayant les services configurés puis le mode hors ligne.
