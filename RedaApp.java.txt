@@ -2,7 +2,7 @@
 
 démarre l’application JavaFX et ouvre la fenêtre de discussion.
 
-
+das
 
 	ChatController.java :
 
