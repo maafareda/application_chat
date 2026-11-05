@@ -2,9 +2,6 @@
 
 démarre l’application JavaFX et ouvre la fenêtre de discussion.
 
-das
-asdf
-dsa
 	ChatController.java :
 
  gère l’interface : utilisateurs, conversations, envoi de messages, pièces jointes, audio et assistant.
