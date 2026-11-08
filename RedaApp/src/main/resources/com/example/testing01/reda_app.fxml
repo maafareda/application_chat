@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.testing01.ChatController"
+            prefWidth="1100" prefHeight="700"
+            style="-fx-background-color:#ECE5DD;">
+    <left>
+        <VBox prefWidth="300" minWidth="220" style="-fx-background-color:#111B21;">
+            <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding:18;">
+                <Label text="💬" style="-fx-font-size:28;"/>
+                <VBox>
+                    <Label text="Reda_App"
+                           style="-fx-text-fill:white;-fx-font-size:18;-fx-font-weight:bold;"/>
+                    <Label fx:id="currentUserLabel" text="Utilisateur"
+                           style="-fx-text-fill:#D1D7DB;-fx-font-size:12;"/>
+                    <Label fx:id="statusLabel" text="● Connexion..."
+                           style="-fx-text-fill:#25D366;-fx-font-size:11;"/>
+                </VBox>
+            </HBox>
+
+            <TextField fx:id="searchField" promptText="Rechercher un utilisateur..."
+                       style="-fx-background-color:#2A3942;-fx-text-fill:white;-fx-prompt-text-fill:#8696A0;-fx-background-radius:20;-fx-padding:10;"/>
+            <Label text="DISCUSSIONS" style="-fx-text-fill:#8696A0;-fx-font-size:10;-fx-padding:14 12 6 12;"/>
+            <ListView fx:id="userList" VBox.vgrow="ALWAYS"
+                      style="-fx-background-color:#111B21;-fx-control-inner-background:#111B21;-fx-text-fill:white;"/>
+            <Button fx:id="llmBtn" text="🤖  Assistant Reda_App" maxWidth="Infinity"
+                    style="-fx-background-color:#128C7E;-fx-text-fill:white;-fx-font-size:14;-fx-padding:14;-fx-background-radius:0;"/>
+        </VBox>
+    </left>
+
+    <center>
+        <TabPane fx:id="mainTabs" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Discussions">
+                    <BorderPane>
+                        <top>
+                            <HBox spacing="12" alignment="CENTER_LEFT"
+                                  style="-fx-background-color:white;-fx-padding:14;-fx-border-color:#E0E0E0;-fx-border-width:0 0 1 0;">
+                                <Label text="👤" style="-fx-font-size:22;"/>
+                                <VBox>
+                                    <Label fx:id="conversationLabel" text="Choisissez une discussion"
+                                           style="-fx-font-size:16;-fx-font-weight:bold;"/>
+                                    <Label text="Discussion privée"
+                                           style="-fx-font-size:11;-fx-text-fill:#667781;"/>
+                                </VBox>
+                            </HBox>
+                        </top>
+
+                        <center>
+                            <ScrollPane fx:id="messageScroll" fitToWidth="true"
+                                        style="-fx-background:#ECE5DD;-fx-background-color:#ECE5DD;">
+                                <VBox fx:id="messageBox" spacing="9"
+                                      style="-fx-padding:16;-fx-background-color:#ECE5DD;"/>
+                            </ScrollPane>
+                        </center>
+
+                        <bottom>
+                            <VBox spacing="8"
+                                  style="-fx-background-color:#F0F0F0;-fx-padding:10;-fx-border-color:#DDD;-fx-border-width:1 0 0 0;">
+                                <HBox spacing="8">
+                                    <Button fx:id="imageBtn" text="📷 Image"
+                                            style="-fx-background-color:white;-fx-background-radius:16;-fx-padding:7 12;"/>
+                                    <Button fx:id="fileBtn" text="📎 Fichier"
+                                            style="-fx-background-color:white;-fx-background-radius:16;-fx-padding:7 12;"/>
+                                    <Button fx:id="audioBtn" text="🎙️ Enregistrer"
+                                            style="-fx-background-color:white;-fx-background-radius:16;-fx-padding:7 12;"/>
+                                    <Button fx:id="emojiBtn" text="😊 Emojis"
+                                            style="-fx-background-color:white;-fx-background-radius:16;-fx-padding:7 12;"/>
+                                </HBox>
+                                <HBox spacing="8" alignment="CENTER">
+                                    <TextField fx:id="inputField" promptText="Écrire un message..."
+                                               HBox.hgrow="ALWAYS"
+                                               style="-fx-background-radius:20;-fx-padding:11;"/>
+                                    <Button fx:id="sendBtn" text="Envoyer"
+                                            style="-fx-background-color:#128C7E;-fx-text-fill:white;-fx-background-radius:20;-fx-padding:10 16;-fx-font-weight:bold;"/>
+                                </HBox>
+                            </VBox>
+                        </bottom>
+                    </BorderPane>
+                </Tab>
+                <Tab fx:id="assistantTab" text="Assistant IA">
+                    <BorderPane style="-fx-background-color:#ECE5DD;">
+                        <top>
+                            <VBox spacing="4"
+                                  style="-fx-background-color:white;-fx-padding:16;-fx-border-color:#E0E0E0;-fx-border-width:0 0 1 0;">
+                                <Label text="🤖  Assistant Reda_App"
+                                       style="-fx-font-size:18;-fx-font-weight:bold;"/>
+                                <Label text="Posez une question sur les discussions, les messages, les emojis ou l'audio."
+                                       style="-fx-font-size:12;-fx-text-fill:#667781;"/>
+                                <Label fx:id="assistantStatusLabel" text="Connexion au modèle local…"
+                                       style="-fx-font-size:11;-fx-text-fill:#667781;"/>
+                            </VBox>
+                        </top>
+                        <center>
+                            <ScrollPane fx:id="assistantScroll" fitToWidth="true"
+                                        style="-fx-background:#ECE5DD;-fx-background-color:#ECE5DD;">
+                                <VBox fx:id="assistantBox" spacing="10"
+                                      style="-fx-padding:16;-fx-background-color:#ECE5DD;">
+                                    <Label text="Bonjour ! Posez votre question ci-dessous."
+                                           style="-fx-padding:12;-fx-background-color:white;-fx-background-radius:12;"/>
+                                </VBox>
+                            </ScrollPane>
+                        </center>
+                        <bottom>
+                            <HBox spacing="8" alignment="CENTER"
+                                  style="-fx-background-color:#F0F0F0;-fx-padding:12;-fx-border-color:#DDD;-fx-border-width:1 0 0 0;">
+                                <TextField fx:id="assistantInputField" promptText="Écrire à l'assistant..."
+                                           HBox.hgrow="ALWAYS"
+                                           style="-fx-background-radius:20;-fx-padding:11;"/>
+                                <Button fx:id="assistantSendBtn" text="Envoyer"
+                                        style="-fx-background-color:#128C7E;-fx-text-fill:white;-fx-background-radius:20;-fx-padding:10 16;-fx-font-weight:bold;"/>
+                            </HBox>
+                        </bottom>
+                    </BorderPane>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>
